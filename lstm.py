@@ -7,25 +7,25 @@ from keras.callbacks import ModelCheckpoint
 from keras.layers import Dense, Activation
 from keras.layers import LSTM, Dropout
 from keras.models import Sequential
-from keras.optimizers import adam
+from keras.optimizers import adam, nadam
 
 from prepare_data import transform_users, transform_user, get_sample_of_users, symptoms_of_interest_dict, cycles0
 
-<<<<<<< HEAD
-INPUT_SIZE = 1
-OUTPUT_SIZE = 1
-MAXLEN = 60   ## sequence length
-STEP_DAYS = 1 ##
-BATCH_SIZE = 128  # 512
-NB_EPOCH = 10
-=======
+#<<<<<<< HEAD
+#INPUT_SIZE = 1
+#OUTPUT_SIZE = 1
+#MAXLEN = 60   ## sequence length
+#STEP_DAYS = 1 ##
+#BATCH_SIZE = 128  # 512
+#NB_EPOCH = 10
+#=======
 INPUT_SIZE = 16
 OUTPUT_SIZE = 16
-MAXLEN = 60
-STEP_DAYS = 3
-BATCH_SIZE = 256
+MAXLEN = 120
+STEP_DAYS = 1
+BATCH_SIZE = 128
 NB_EPOCH = 15
->>>>>>> 3e263b9ab7943944152620bfc0748e716689e3ae
+#>>>>>>> 3e263b9ab7943944152620bfc0748e716689e3ae
 
 
 def reformat(df_in,
@@ -34,7 +34,7 @@ def reformat(df_in,
              maxlen=MAXLEN,
              step_days=STEP_DAYS):
 
-    max_sequences = 10 ** 5
+    max_sequences = 10 ** 7
     days_sequence = np.empty((max_sequences, maxlen, input_size), dtype=int)
     next_day = np.empty((max_sequences, output_size), dtype=int)
     days = df_in[:, -1]
