@@ -12,12 +12,12 @@ import matplotlib.pyplot as plt
 from prepare_data import transform_users, get_sample_of_users
 
 
-INPUT_SIZE = 16
-OUTPUT_SIZE = 16
-MAXLEN = 60
-STEP_DAYS = 3
-BATCH_SIZE = 512
-NB_EPOCH = 3
+INPUT_SIZE = 1
+OUTPUT_SIZE = 1
+MAXLEN = 60   ## sequence length
+STEP_DAYS = 1 ##
+BATCH_SIZE = 128  # 512
+NB_EPOCH = 10
 
 
 def reformat(df_in,
